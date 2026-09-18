@@ -10,7 +10,14 @@
 # use the regular S6-Overlay; hence this add-on uses a "old school" script
 # to run; with a couple of "hacks" to make it work.
 # ==============================================================================
+
+
 /etc/cont-init.d/node_exporter.sh
+
+# FIXME: move to service in S6 overlay
+if bashio::config.true 'enable_collector_scripts'; then
+    /etc/services.d/collector_scripts_cron/run &
+fi
 
 # Start Prometheus Node Exporter
 exec /etc/services.d/node_exporter/run

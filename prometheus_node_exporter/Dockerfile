@@ -20,7 +20,7 @@ RUN \
     if [ -z "${TARGETARCH}" ]; then \
         echo "TARGETARCH is not set, please use Docker BuildKit for the build." && exit 1; \
     fi \
-    && apk add --no-cache --update apache2-utils \
+    && apk add --no-cache --update apache2-utils smartmontools \
     && case "${TARGETARCH}" in \
         amd64) NODE_EXPORTER_ARCH="amd64" ;; \
         arm64) NODE_EXPORTER_ARCH="arm64" ;; \
@@ -34,7 +34,6 @@ RUN \
     && mv node_exporter /usr/local/bin/ \
     && adduser -s /bin/false -D -H prometheus \
     && chown -R prometheus:prometheus /usr/local/bin/node_exporter \
-    && cd /tmp \
     && rm -rf /tmp/node_exporter
 
 # Copy root filesystem
@@ -43,4 +42,5 @@ COPY rootfs /
 # This add-on runs on the host pid namespace, making it impossible
 # to use S6-Overlay. Therefore the init system is disabled at this point.
 ENTRYPOINT []
+
 CMD ["/run.sh"]

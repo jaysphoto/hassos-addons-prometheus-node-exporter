@@ -39,6 +39,10 @@ TLS is disabled by default. If you want to enable TLS:
 
 This option allows you to pass command-line arguments directly to Prometheus Node Exporter. This is particularly useful to adjust which [collectors](https://github.com/prometheus/node_exporter/#collectors) run. For example, to disable all collectors except the `cpu` collector, you can use this string: `--collector.disable-defaults --collector.cpu`.
 
+### Collector scripts
+
+FIXME: TBC.
+
 ## Usage (in Prometheus server)
 
 Add the following to the `/etc/prometheus/prometheus.yml` config file on your Prometheus server:
