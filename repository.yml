@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Logan Marchione Home Assistant Add-Ons Fork
+name: Logan Marchione Home Assistant Add-Ons (Forked repo)
 url: 'https://github.com/jaysphoto/hassos-addons-prometheus-node-exporter'
 maintainer: Jay (Geoffrey) De Kleijn
