@@ -8,6 +8,8 @@
   "arch": ["amd64", "aarch64"],
   "startup": "services",
   "init": false,
+  "full_access": true,
+  "privileged": ["SYS_RAWIO", "SYS_ADMIN"],
   "webui": "[PROTO:enable_tls]://[HOST]:[PORT:9100]",
   "ports": {
     "9100/tcp": 9100
